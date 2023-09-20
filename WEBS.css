@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gilroy';
+    ;
+    
+    }
+    html,body{
+    
+        width: 100%;
+        height: 100%;
+    }
+    .main{
+    
+       background-color: #F5F5F5 ;
+    }
+    .page1{
+       min-height: 100vh;
+        width: 100%;
+        color:#551A8B;  
+    }
+    #nav{
+        height: 60px;
+        width: 100%;
+        background-color:#3FB98C ;
+        display: flex;
+        align-items: center ;
+        justify-content: space-between;
+        padding: 0 30px;
+    }
+    #nav image{
+        height: 26px;
+    
+    }
+    #nav-part2{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap: 20px;
+    
+    }
+    #nav #circle{
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background-color:darksalmon;
+    
+    }
+    #nav h4{
+        font-size: 23px;
+        font-weight: 1550;
+        text-transform: uppercase;
+    }
+    #nav h4:nth-child(1){
+        border-bottom: 1.5px solid #fff;
+    }
+    .page1 h1{
+        font-size: 5vw;
+        font-weight: 120;
+        margin-top: 12vw;
+        margin-left: 6vw;
+        font-family: josefin-sans;
+    }
+    .page1 h2{
+        font-size: 5vw;
+        font-weight: 120;
+        margin-left: 26vw;
+        font-family: josefin-sans;
+    
+    }
+    
+    .page1 video{
+        width: 140%;
+        margin-top: 15vw;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%,0);
+    
+    
+    }
+    
+    .page2{
+    
+        min-height: 200vh;
+        width: 100%;
+    }
+    
+    .page2 h1{
+        font-size:4vw;
+        font-weight: 200;
+        color:#353435;
+    }
+    .page2-container{
+        height: 120vh;
+        width: 100%;
+        background-color:#3C8F69;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 5vw;
+    }
+    .page2-left{
+        background-color:#E9E9E9;
+        width: 75%;
+        height: 79%;
+        padding: 5vw 5vw 5vw 5vw;
+    
+    }
+    
+    
+    
+    .page2-left h2{
+        font-size: 2vw;
+        font-weight: 250;
+        color:#444444;
+    }
+    .image_1{
+width: fit-content;
+height: fit-content;
+    }
+    .text{
+        font-size: 3vw;
+        font-weight: 270;
+        color:#EADF44; 
+        position: inherit;
+    }
+   

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+    crossorigin=""/>
+
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+    integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+    crossorigin=""></script>
+    <script src="C:\Users\91848\Desktop\WEBS\leaflet-knn-master\leaflet-knn.js"></script>
+
+<style>
+    #map { height: 600px;
+    width:1600px; }
+</style>
+
+<main>
+    <div id="map"></div>
+</main>
+
+<script>
+
+const map = L.map('map'); 
+// Initializes map
+
+map.setView([19.087522223454734, 72.86791412396333], 13); 
+// Sets initial coordinates and zoom level
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map); 
+// Sets map data source and associates with map
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map); 
+
+
+
+let marker, circle, zoomed;
+
+navigator.geolocation.watchPosition(success, error);
+
+function success(pos) {
+
+    const lat = pos.coords.latitude;
+    const lng = pos.coords.longitude;
+    const accuracy = pos.coords.accuracy;
+
+    if (marker) {
+        map.removeLayer(marker);
+        map.removeLayer(circle);
+    }
+    // Removes any existing marker and circule (new ones about to be set)
+
+    marker = L.marker([lat, lng]).addTo(map);
+    circle = L.circle([lat, lng], { radius: accuracy }).addTo(map);
+    // Adds marker to the map and a circle for accuracy
+
+    if (!zoomed) {
+        zoomed = map.fitBounds(circle.getBounds()); 
+    }
+    // Set zoom to boundaries of accuracy circle
+
+    map.setView([lat, lng]);
+    // Set map focus to current user position
+
+    L.marker([19.071552387479166, 72.8701469737672],{
+    title: "Ecotech Recycling",
+})
+.bindPopup('<span class="popup"><b>Ecotech Recycling</b><br><a href="https://www.ecotechrecycling.in/">website</a><br>call: 9004547542</span>')
+    .addTo(map);
+
+L.marker([19.10420832005944, 72.88675178016462],{
+    title: "Clean Tech",
+})
+.bindPopup('<span class="popup"><b>Clean Tech</b><br><a href="http://ecleantech.org/">website</a><br>call: 9833526722</span>')
+    .addTo(map);
+
+    L.marker([19.131500483159826, 72.86253223227162],{
+    title: "Spas Recycling Pvt Ltd",
+})
+.bindPopup('<span class="popup"><b>Spas Recycling Pvt Ltd</b><br><a href="https://www.recycleinme.com/rim-spasrecycle/home">website</a><br>call: 9833526722</span>')
+    .addTo(map);
+
+    L.marker([19.105619094040502, 72.9034492822887],{
+    title: "BHARAT E - WASTE RECYCLING CO.",
+})
+.bindPopup('<span class="popup"><b>BHARAT E - WASTE RECYCLING CO.</b><br><a href="https://bharatrecycling.com/">website</a><br>call: 9224757187 </span>')
+    .addTo(map);
+
+    L.marker([19.12406740403, 72.85672596083774],{
+    title: "Ecoreco - E-Waste Recycling, Electronic Waste Recyclers",
+})
+.bindPopup('<span class="popup"><b>Ecoreco - E-Waste Recycling, Electronic Waste Recyclers</b><br><a href="https://ecoreco.com/">website</a><br>call: 18001021020 </span>')
+    .addTo(map);
+
+}
+
+function error(err) {
+
+    if (err.code === 1) {
+        alert("Please allow geolocation access");
+    } else {
+        alert("Cannot get current location");
+    }
+
+}
+
+</script>
+  
+</body>
+</html>
